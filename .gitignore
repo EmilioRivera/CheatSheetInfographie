@@ -1,0 +1,5 @@
+# Produits de compilation LaTeX
+*.aux
+*.log
+*.pdf
+*.gz
