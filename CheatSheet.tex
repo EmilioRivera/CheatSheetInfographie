@@ -1,0 +1,73 @@
+\documentclass[twocolumn]{article}			
+\usepackage{amsmath}%AMS-LaTeX represent
+\usepackage{amsfonts,amssymb}%Fonts
+\usepackage[frenchb]{babel}%Francisation
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+				
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+				% Marges et autres settings pour cheat sheet %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+
+\setlength\topmargin{0in}
+\setlength\headheight{0in}
+\setlength\headsep{0in}
+\setlength\textheight{10.5in}
+\setlength\textwidth{8in}
+\setlength\oddsidemargin{0in}
+\setlength\evensidemargin{0in}
+\setlength\parindent{0in}
+\setlength\parskip{0in}
+\renewcommand{\baselinestretch}{1}
+\addtolength{\oddsidemargin}{-.8in}
+\addtolength{\topmargin}{-.8in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+						% Commandes de cheat sheet %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ligne}{ ------------------------------------------------------------------------------------ \newline}
+\newcommand{\titre}[1]{\ligne \textbf{#1 }}
+\newcommand{\titrej}[1]{\textbf{#1 }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+						% Commandes d'informatique %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\begin{document}
+
+\section{Éclairage}
+\begin{description}
+   \item[\code{glGenTextures( n, GLuint* texture )}] : Génere $n$ noms de textures.
+   \item[\code{glBindTexture( GL\_TEXTURE\_2D, GLuint texture[i] )}] : Définit la texture active.
+   \item[\code{glTexImage2D( $\dots$ )}] Charge les données dans l'objet texture sur la carte graphique.
+	\item[\code{glEnableClientState( GL\_TEXTURE\_COORD\_ARRAY )}]
+	\item[\code{glTexCoordPointer(2, GL\_FLOAT, \textit{stride}, textureCoordDE)}]
+	\item[\code{glDisableClientState( GL\_TEXTURE\_COORD\_ARRAY )}]
+
+\end{description}
+
+\subsection{Formules de cone}
+\begin{description}
+   \item[Direct3D] $\code{effetSpot} = \frac{\cos(\gamma) - \cos(\theta_{\textrm{outer}})}{\cos(\theta_{\textrm{inner}}) - \cos(\theta_{\textrm{outer}})}$ 
+   % avec \\
+   % cosInner = cosDelta
+   % cosOuter = cosInner^(1.01 + c/2)
+
+   \item[OpenGL] $\code{effetSpot} = \cos(\gamma)^{c}$ où \\ $c =$ \code{gl\_LightSource[0].spotExponent}
+\end{description}
+
+\subsection{Formules de reflection}
+\begin{description}
+	\item[\code{composanteAmbiante}] $ = S_{\textrm{ambient}} \cdot M_{\textrm{ambient}} $
+	\item[\code{composanteDiffuse}] $ = (\vec{N},\vec{L}) \cdot S_{\textrm{diffuse}} \cdot M_{\textrm{diffuse}} $
+	\item[\code{composanteSpeculaire}] $ = (\vec{R},\vec{V}) \cdot S_{\textrm{specular}} \cdot M_{\textrm{specular}} $
+\end{description}
+
+
+
+\end{document}
